@@ -4,7 +4,7 @@ import Guitar from './components/Guitar'
 import { db } from './data/db'
 
 function App() {
-  const [data, setData] = useState(db) // Agregando el objeto db(archivo local) al State
+  const [data, setData] = useState(db)                                              // Agregando el objeto db(archivo local) al State
 
   return (
     <>
@@ -14,8 +14,12 @@ function App() {
         <h2 className="text-center">Nuestra Colección</h2>
 
         <div className="row mt-5">
-          {data.map(() => (
-            <Guitar />
+          {data.map((guitar) => (                                                   // <- Para obtener la info de c/objeto del array
+
+            <Guitar
+              key={guitar.id}
+              guitar={guitar}
+            />
           ))}
         </div>
       </main>
