@@ -1,6 +1,6 @@
 import Header from './components/Header'
 import Guitar from './components/Guitar'
-import './App.css'
+import { db } from './data/db'
 
 function App() {
 
