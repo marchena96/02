@@ -15,7 +15,6 @@ function App() {
 
         <div className="row mt-5">
           {data.map((guitar) => (                                                   // <- Para obtener la info de c/objeto del array
-
             <Guitar
               key={guitar.id}
               guitar={guitar}
