@@ -5,6 +5,13 @@ import { db } from './data/db'
 
 function App() {
   const [data, setData] = useState(db)                                              // Agregando el objeto db(archivo local) al State
+  const [cart, setCart] = useState([])
+
+  function addToCart(item) {
+
+    setCart(prevCart => [...prevCart, item])
+
+  }
 
   return (
     <>
@@ -18,11 +25,12 @@ function App() {
             <Guitar
               key={guitar.id}
               guitar={guitar}
+              setCart={setCart}
+              addToCart={addToCart}                    // <- Función que modifica el state
             />
           ))}
         </div>
       </main>
-
 
       <footer className="bg-dark mt-5 py-5">
         <div className="container-xl">
