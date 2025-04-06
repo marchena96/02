@@ -8,9 +8,14 @@ function App() {
   const [cart, setCart] = useState([])
 
   function addToCart(item) {
+    const itemExists = cart.findIndex((guitar) => guitar.id === item.id)
 
-    setCart(prevCart => [...prevCart, item])
-
+    if (itemExists >= 0) {
+      console.log('Elemento existente!')
+    } else {
+      item.quantity = 1
+      setCart([cart, item]) // Esta línea lo agrega al state
+    }
   }
 
   return (
