@@ -11,7 +11,10 @@ function App() {
     const itemExists = cart.findIndex((guitar) => guitar.id === item.id)
 
     if (itemExists >= 0) {
-      console.log('Elemento existente!')
+      const updatedCart = [...cart]   // Tomando una copia del carrito usando spread operator
+      updatedCart[itemExists].quantity++
+      setCart(updatedCart)
+
     } else {
       item.quantity = 1
       setCart([cart, item]) // Esta línea lo agrega al state
